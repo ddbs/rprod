@@ -2,7 +2,7 @@
 R in Production
 
 
-## When subsetting, always use `drop = FALSE`
+## Use `drop = FALSE` when subsetting
 
 To guarantee that result is of same format as source.
 
@@ -15,9 +15,7 @@ Don't:
     res <- names(df[, num_cols]
 
 
-## Always force NULL if result is empty or has zero length
+## Force NULL for situations where result may have zero length
 
-To avoid unexpected results.
-
+    # zero-length vector
     if(length(res) == 0) res <- NULL
-
