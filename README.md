@@ -6,14 +6,14 @@ R in Production
 
 Do: 
 
-  col_names <- names(df[, num_cols, drop = FALSE])
+   col_names <- names(df[, num_cols, drop = FALSE])
   
 Don't: 
 
-  col_names <- names(df[, num_cols]
+   col_names <- names(df[, num_cols]
 
 
 ## Always force NULL if result is empty or has zero length
 
-  if(length(num_names) == 0) num_names <- NULL
+   if(length(num_names) == 0) num_names <- NULL
 
