@@ -2,8 +2,24 @@
 
 Notes for R in production.
 
+## Subsetting
 
-## Use `drop = FALSE` when subsetting
+### Use brackets instead of `$`
+
+Do:
+
+    
+    df[["varname"]]
+    
+    varname <- "varname"
+    df[[varname]]
+
+Don't:
+
+    df$varname
+    
+
+### Use `drop = FALSE` when subsetting
 
 To guarantee that result is of same format as source.
 
@@ -16,7 +32,9 @@ Don't:
     res <- df[, num_cols]
 
 
-## Force NULL whenever result may have zero length
+## Validation
+
+### Force NULL whenever result may have zero length
 
     # zero-length vector
     if(length(res) == 0) res <- NULL
