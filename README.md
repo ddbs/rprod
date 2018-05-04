@@ -34,7 +34,20 @@ Don't:
 
 ## Validation
 
-### Force NULL whenever result may have zero length
+### Output check: Force NULL whenever result may have zero length
 
     # zero-length vector
     if(length(res) == 0) res <- NULL
+    
+ ### Input check: validate object type and object length
+ 
+ Example, to avoid "condition has length > 1" warnings
+ 
+     is_url <- function (s) {
+      if(is.character(s) & length(s) == 1) { ## expect a character object with length = 1
+        ifelse(substr(s,1,8) == "https://" | substr(s, 1, 7) == "http://", TRUE, FALSE)
+      }
+      else {
+        FALSE
+      }
+    }
